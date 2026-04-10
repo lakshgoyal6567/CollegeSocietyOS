@@ -4,7 +4,7 @@
 set -e
 
 # Define Flutter version
-FLUTTER_VERSION="3.24.0"
+FLUTTER_VERSION="3.38.7"
 
 # Download Flutter
 if [ ! -d "flutter" ]; then
@@ -16,6 +16,9 @@ fi
 
 # Add Flutter to path
 export PATH="$PATH:$(pwd)/flutter/bin"
+
+# Fix for git dubious ownership in Vercel
+git config --global --add safe.directory "*"
 
 # Pre-download artifacts
 flutter config --no-analytics
